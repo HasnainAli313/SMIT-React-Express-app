@@ -31,6 +31,17 @@ useEffect(()=>{
     .catch(err => console.error(err));
 };
 
+const updateUserById = (id) => {
+  axios.put(`${API_URL}/${id}`, { name: updateUser.name })
+    .then(response => {
+      setUsers(users.map(user => (user.id === id ? response.data : user)));
+      setUpdateUser({ id: '', name: '' }); // Reset input
+      fetchUsers()
+    })
+    .catch(err => console.error(err));
+};
+
+
   return (
 
   )
