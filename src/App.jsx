@@ -73,7 +73,17 @@ const deleteUserById = (id) => {
         </div>
       )}
 
-      
+<ul>
+        {users.map(user => (
+          <li key={user.id}>
+            {user.name}
+            <button onClick={() => setUpdateUser({ id: user.id, name: user.name })}>
+              Edit
+            </button>
+            <button onClick={() => deleteUserById(user.id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
       </>
   )
 }
