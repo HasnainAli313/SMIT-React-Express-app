@@ -49,8 +49,32 @@ const deleteUserById = (id) => {
     .catch(err => console.error(err));
 };
 
-  return (
 
+  return (
+      <>
+          <h1>CRUD Operations with Express & React</h1>
+      <input
+        type="text"
+        value={newUser}
+        onChange={(e) => setNewUser(e.target.value)}
+        placeholder="Enter new user"
+      />
+      <button onClick={addUser}>Add User</button>
+
+      {updateUser.id && (
+        <div>
+          <input
+            type="text"
+            value={updateUser.name}
+            onChange={(e) => setUpdateUser({ ...updateUser, name: e.target.value })}
+            placeholder="Update user name"
+          />
+          <button onClick={() => updateUserById(updateUser.id)}>Update User</button>
+        </div>
+      )}
+
+      
+      </>
   )
 }
 
