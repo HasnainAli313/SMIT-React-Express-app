@@ -16,6 +16,10 @@ function App() {
   setUsers(content.data)
 }
 
+useEffect(()=>{
+  fetchUsers()
+ },[])
+
   return (
 
   )
