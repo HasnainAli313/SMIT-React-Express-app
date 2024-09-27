@@ -9,6 +9,12 @@ function App() {
  const [newUser, setNewUser] = useState('');
  const [updateUser, setUpdateUser] = useState({ id: '', name: '' });
 
+ async function fetchUsers(){
+  const response = await axios.get(API_URL)
+  const content = response.data
+  
+  setUsers(content.data)
+}
 
   return (
 
