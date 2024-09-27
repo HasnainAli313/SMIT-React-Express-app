@@ -41,6 +41,13 @@ const updateUserById = (id) => {
     .catch(err => console.error(err));
 };
 
+const deleteUserById = (id) => {
+  axios.delete(`${API_URL}/${id}`)
+    .then(() => {
+      setUsers(users.filter(user => user.id !== id));
+    })
+    .catch(err => console.error(err));
+};
 
   return (
 
